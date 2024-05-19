@@ -54,7 +54,7 @@ O template cria uma infraestrutura robusta na AWS, incluindo redes, instâncias 
 
 A seção Metadata define a interface do CloudFormation, organizando os parâmetros em grupos para facilitar a configuração.
 
-* ParameterGroups:
+**ParameterGroups:**
   1. VPC Configurations: Parâmetros relacionados à configuração da VPC, incluindo intervalos de CIDR para sub-redes públicas e privadas.
   2. Autoscaling configurations: Parâmetros para configurar o Auto Scaling, como ID da imagem, tipo de instância e tamanhos mínimo, máximo e desejado do grupo de Auto Scaling.
   3. Github configurations: Parâmetros para configurar o repositório do GitHub e a lista de impressões digitais para autenticação do OIDC.
@@ -80,22 +80,22 @@ A seção Metadata define a interface do CloudFormation, organizando os parâmet
 
 5. **RouteTables e Routes:** Configura tabelas de rotas e associações para sub-redes públicas e privadas.
 
-6. SecurityGroups: <BR>
+6. **SecurityGroups:** <BR>
   **6.1 ALBSecurityGroup:** Grupo de segurança para o Application Load Balancer (ALB), permitindo tráfego na porta 8080. <br>
   **6.2 WebappSecurityGroup:** Grupo de segurança para a aplicação web, permitindo tráfego do ALB.
 
-7. IAM Roles e Policies:<BR>
+7. **IAM Roles e Policies:** <BR>
   **7.1 WebappRole:** Função IAM para a aplicação web, permitindo que instâncias EC2 e o CodeDeploy assumam a função. <br>
   **7.2 IDCProvider:** Provedor OIDC para autenticação com GitHub Actions. <br>
   **7.3 GitHubIAMRole:** Função IAM para permitir que GitHub Actions interaja com o CodeDeploy.
 
-8. CodeDeploy Application e DeploymentGroup: Configura o CodeDeploy para implantar a aplicação em um grupo de Auto Scaling.
+8. **CodeDeploy Application e DeploymentGroup:** Configura o CodeDeploy para implantar a aplicação em um grupo de Auto Scaling.
 
-9. AutoScaling Group e Launch Configuration: Define um grupo de Auto Scaling e uma configuração de lançamento para instâncias EC2, incluindo a instalação do Tomcat e do agente do CodeDeploy.
+9. **AutoScaling Group e Launch Configuration:** Define um grupo de Auto Scaling e uma configuração de lançamento para instâncias EC2, incluindo a instalação do Tomcat e do agente do CodeDeploy.
 
-10. S3 Bucket: Cria um bucket S3 para armazenar pacotes de implantação.
+10. **S3 Bucket:** Cria um bucket S3 para armazenar pacotes de implantação.
 
-11. Load Balancer e Target Group: 
+11. **Load Balancer e Target Group:** 
   **11.1 ApplicationLoadBalancer:** Cria um ALB público.
   **11.2 ALBTargetGroup:** Grupo de destino para o ALB, definindo verificações de integridade.
 
